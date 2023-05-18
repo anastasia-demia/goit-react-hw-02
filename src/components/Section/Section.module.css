@@ -1,0 +1,13 @@
+.section {
+  width: 450px;
+  margin: 0 auto;
+  background-color: beige;
+  padding: 10px;
+  border-radius: 25px 0px 25px 0px;
+  margin-bottom: 2px;
+}
+
+.title {
+  padding: 15px 0;
+  font-size: 45px;
+}

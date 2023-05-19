@@ -6,10 +6,20 @@ export const FeedbackOptions = ({
 }) => {
   return (
     <ul className={css.list}>
-      <li className={css.item}><button className={css.button} type="button" name='good'>good</button></li>
-      <li className={css.item}><button className={css.button} type="button" name='neutral'>neutral</button></li>
-      <li className={css.item}><button className={css.button} type="button" name='bad'>bad</button></li>
+      {options.map(option => (
+        <li className={css.item} key={option}>
+          <button
+            className={css.button}
+            type="button"
+            name={option}
+            onClick={onButtonClick}
+          >
+            {option}
+          </button>
+        </li>
+      ))}
     </ul>
+
   )
 }
 
@@ -17,3 +27,4 @@ FeedbackOptions.protoTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onButtonClick: PropTypes.func.isRequired,
 };
+

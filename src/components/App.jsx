@@ -18,6 +18,7 @@ export class App extends Component {
       [button]: prevState[button] + 1
     }))
     }
+    console.log(button);
   }
 
   countTotalFeedback = () => {
@@ -46,18 +47,19 @@ export class App extends Component {
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-          options={options}
-          onButtonClick={this.handleClick}/>
+            options={options}
+            onButtonClick={this.handleClick}/>
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback > 0 ? (
             <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={this.countTotalFeedback}
-            positivePercentage={this.countPositiveFeedback}
-            /> ) : ( <Notification message="No feedback yet."/>
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback}
+              positivePercentage={this.countPositiveFeedback}
+            /> ) :
+            ( <Notification message="No feedback yet."/>
           )}
         </Section>
       </>

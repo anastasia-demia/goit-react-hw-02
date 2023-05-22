@@ -15,10 +15,11 @@ export class App extends Component {
     const button = e.target.name
     if (button) {
     this.setState(prevState => ({
-      [button]: prevState[button] + 1
-    }))
+      [button]: prevState[button] + 1,
+      }))
     }
     console.log(button);
+    console.log(this.state.good);
   }
 
   countTotalFeedback = () => {
@@ -51,13 +52,13 @@ export class App extends Component {
             onButtonClick={this.handleClick}/>
         </Section>
         <Section title="Statistics">
-          {this.countTotalFeedback > 0 ? (
+          {this.countTotalFeedback() > 0 ? (
             <Statistics
               good={good}
               neutral={neutral}
               bad={bad}
-              total={this.countTotalFeedback}
-              positivePercentage={this.countPositiveFeedback}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedback()}
             /> ) :
             ( <Notification message="No feedback yet."/>
           )}
